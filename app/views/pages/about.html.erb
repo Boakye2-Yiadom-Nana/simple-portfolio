@@ -1,0 +1,21 @@
+<%= render "shared/navigation" %>
+
+<div class="skills-container">
+  <h1>My Skills</h1>
+
+  <ul class="skills-list">
+    <% @skills.each do |skill| %>
+      <li class="skill-item">
+        <strong><%= skill.name %></strong>
+        <p>Level: <span class="skill-level"><%= skill.level %></span></p>
+        <em class="skill-desc"><%= skill.description %></em>
+      </li>
+    <% end %>
+  </ul>
+
+  <p class="experience">I have <strong><%= @experience_years %></strong> years of experience</p>
+  
+  <blockquote class="quote">
+    <%= @favorite_quote %>
+  </blockquote>
+</div>

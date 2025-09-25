@@ -1,0 +1,23 @@
+<nav style="background: #333; padding: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+  <!-- Left side: Links -->
+  <div>
+    <%= link_to "Home", root_path, style: "color: white; margin-right: 20px; text-decoration: none;" %>
+    <%= link_to "About", pages_about_path, style: "color: white; margin-right: 20px; text-decoration: none;" %>
+    <%= link_to "Skills", skills_path, style: "color: white; margin-right: 20px; text-decoration: none;" %>
+    <%= link_to "Projects", projects_path, style: "color: white; margin-right: 20px; text-decoration: none;" %>
+    <%= link_to "Contact", pages_contact_path, style: "color: white; margin-right: 20px; text-decoration: none;" %>
+  </div>
+
+  <!-- Right side: Auth -->
+  <div>
+    <% if user_signed_in? %>
+      <span style="color: white; margin-right: 15px;">
+        Hello, <%= current.user.email %>!
+      </span>
+      <%= button_to "Sign out", session_path, method: :delete, style: "background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;" %>
+    <% else %>
+      <%= link_to "Sign in", new_session_path, style: "color: white; margin-right: 10px; text-decoration: none;" %>
+      <%= link_to "Sign up", new_user_path, style: "color: white; text-decoration: none;" %>
+    <% end %>
+  </div>
+</nav>

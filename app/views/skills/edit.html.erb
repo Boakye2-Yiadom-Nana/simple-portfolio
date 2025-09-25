@@ -1,0 +1,44 @@
+<%= render 'shared/navigation' %>
+
+<h1>Edit Skill</h1>
+
+<%= form_with(model: @skill, local: true) do |form| %>
+  <% if @skill.errors.any? %>
+    <div style="color: red; background: #ffe6e6; padding: 10px; margin-bottom: 20px;">
+      <h4><%= @skill.errors.count %> error(s) prevented this skill from being saved:</h4>
+      <ul>
+        <% @skill.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :name, style: 'display: block; font-weight: bold;' %>
+    <%= form.text_field :name, style: 'width: 300px; padding: 8px;' %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :level, "Skill Level (1-10)", style: 'display: block; font-weight: bold;' %>
+    <%= form.number_field :level, in: 1..10, style: 'width: 300px; padding: 8px;' %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :description, style: 'display: block; font-weight: bold;' %>
+    <%= form.text_area :description, rows: 4, style: 'width: 300px; padding: 8px;' %>
+  </div>
+
+   <div style="margin-bottom: 15px;">
+  <%= form.label :category_id, "Category", style: 'display: block; font-weight: bold;' %>
+  <%= form.collection_select :category_id, @categories, :id, :name, 
+        { prompt: "Select a category" }, 
+        { style: 'width: 300px; padding: 8px;' } %>
+</div>
+ 
+
+  <div>
+    <%= form.submit 'Edit Skill', style: 'background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;' %>
+    <%= link_to 'Back to Skills', skills_path, style: 'margin-left: 10px; color: #6c757d; text-decoration: none;' %>
+  </div>
+<% end %>

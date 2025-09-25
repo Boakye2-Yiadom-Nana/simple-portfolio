@@ -1,0 +1,15 @@
+<%= render "shared/navigation" %>
+
+<div class="contact-container">
+  <h1>My Social Media Links</h1>
+
+  <p class="email"><strong>Email:</strong> <%= @email %></p>
+  <p class="response"><strong>Response Time:</strong> <%= @response_time %></p>
+
+  <h2>Social Media Handles</h2>
+  <ul class="social-links">
+    <% @social_links.each do |platform, username| %>
+      <li><strong><%= platform.capitalize %>:</strong> <%= username %></li>
+    <% end %>
+  </ul>
+</div>

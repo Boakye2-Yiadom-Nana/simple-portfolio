@@ -1,0 +1,19 @@
+<div class="home-container">
+  <%= render "shared/navigation" %>
+
+  <h1><%= @greeting %></h1>
+  <p class="time">
+    Current time: <strong><%= @current_time.strftime("%B %d, %Y at %I:%M %p") %></strong>
+  </p>
+  <p class="visitors">You are visitor #<%= @visitor_count %></p>
+
+ <% if current_user %>
+  <p>Welcome <%= current.user.email_address %></p>
+<% else %>
+  <p>Welcome, Guest!</p>
+<% end %>
+
+  <hr class="divider">
+
+  <p class="intro">This is my Rails 8 learning portfolio</p>
+</div>
